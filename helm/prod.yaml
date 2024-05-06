@@ -2,7 +2,17 @@ component: backend
 service_type: ClusterIP
 port: 8080
 env: prod
-PARAMETERS: "backend.prod.DB_HOST, DB_HOST"
+PARAMETERS: "backend.prod.DB_HOST,DB_HOST"
 schema:
   enabled: true
   DB_TYPE: mysql
+
+replicaCount: 2
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 500Mi
+  requests:
+    cpu: 500m
+    memory: 500Mi
